@@ -22,6 +22,10 @@ const filterBooksByAuthor = (books, author) => {
   return books.filter(book => book.author === author)
 }
 
+// segunda parte
 const filteredBooks = filterBooksByAuthor(books, author)
+filteredBooks.forEach(book => {
+  book.author = 'Nuevo Autor'
+});
 
 console.log(filteredBooks)
