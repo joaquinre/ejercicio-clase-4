@@ -15,14 +15,16 @@ const books = [
   { title: 'Las armas secretas', author: 'Julio Cortázar' }
 ];
 
-const author = 'jorge luis borges'
+const author = 'LuIS'
 
-// primera parte
 const filterBooksByAuthor = (books, author) => {
-  return books.filter(book => book.author === author)
+  const searchName = author.trim().toLowerCase()
+  return books.filter(book => {
+    const authorFullName = book.author.toLowerCase().split(' ')
+    return authorFullName.includes(searchName)
+  })
 }
 
-// segunda parte
 const filteredBooks = filterBooksByAuthor(books, author)
 filteredBooks.forEach(book => {
   book.author = 'Nuevo Autor'
