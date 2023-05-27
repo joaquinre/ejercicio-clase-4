@@ -19,15 +19,17 @@ const author = 'LuIS'
 
 const filterBooksByAuthor = (books, author) => {
   const searchName = author.trim().toLowerCase()
-  return books.filter(book => {
+  return books.map(book => {
+    const copy = { ...book }
     const authorFullName = book.author.toLowerCase().split(' ')
-    return authorFullName.includes(searchName)
+    if (authorFullName.includes(searchName)) {
+      copy.author = 'nuevo Autor' 
+    }
+    return copy 
   })
 }
 
 const filteredBooks = filterBooksByAuthor(books, author)
-filteredBooks.forEach(book => {
-  book.author = 'Nuevo Autor'
-});
 
 console.log(filteredBooks)
+console.log(books);
